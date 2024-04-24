@@ -1,0 +1,24 @@
+git config --global user.name OrtigosaLaura
+git config --global user.email lauraortigosa378@gmail.com 
+
+
+Executar, no terminal, 1 por vez, em ordem:
+    dotnet new mvc -o Melflix
+    dotnet new sln --name Melflix
+    dotnet sln add Melflix\Melflix.csproj
+
+    - Database First / Code First
+    -Instalar os pacotes necessários
+
+    1° Forma - Acessar o site nuget.org
+        - dotnet add package Microsoft.EntityFrameworkCore --version 8.0.4
+
+    2° Forma - Usar a extensão Nuget Gallery
+        -Shift + Ctrl + P
+        -Nuget [Enter]
+        -Pesquisar e instalar os pacotes:
+            -EntityFrameworkCore
+            -EntityFrameworkCore.Design
+            -EntityFrameworkCore.Tools
+            -Pomelo.EntityFrameworkCore.MySql
+    
