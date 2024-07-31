@@ -1,14 +1,23 @@
 using Melflix.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// Serviço de conexão com o Banco de Dados
 string conn = builder.Configuration.GetConnectionString("MelflixConnection");
 var version = ServerVersion.AutoDetect(conn);
 builder.Services.AddDbContext<AppDbContext>(
     opt => opt.UseMySql(conn, version)
 );
+
+// Serviço de Gestão de Usuários
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(
+    opt => opt.SignIn.RequireConfirmedAccount = false
+)
+.AddEntityFrameworkStores<AppDbContext>()
+.AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
 
